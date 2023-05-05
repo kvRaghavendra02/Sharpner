@@ -19,6 +19,6 @@
 
 //GETELEMENTBYCLASS //
 var item = document.getElementsByClassName('title');
-console.log(item);
+//console.log(item);
 item[0].style.fontWeight = 'bold';
 item[0].style.color = 'green';
