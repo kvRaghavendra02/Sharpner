@@ -27,13 +27,29 @@
 
 
 //GETELEMENTBYCLASS //
-var item = document.getElementsByClassName('list-group-item');
-console.log(item);
+// var item = document.getElementsByClassName('list-group-item');
+// console.log(item);
 
 
-for(var i=0; i<item.length;i++)
+// for(var i=0; i<item.length;i++)
+// {
+//     item[i].style.fontWeight = 'bold';
+//     item[i].style.backgroundColor="#f4f4f4";
+// }
+// item[2].style.backgroundColor="green";
+
+//console.log(document.all);
+
+
+//GETELEMENTBYTAGNAME
+
+var li = document.getElementsByTagName('li');
+console.log(li);
+
+
+for(var i=0; i<li.length;i++)
 {
-    item[i].style.fontWeight = 'bold';
-    item[i].style.backgroundColor="#f4f4f4";
+    li[i].style.fontWeight = 'bold';
+    li[i].style.backgroundColor="#f4f4f4";
 }
-item[2].style.backgroundColor="green";
+li[2].style.backgroundColor="green";
