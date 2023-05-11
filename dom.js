@@ -83,14 +83,123 @@
 
 //QUERYSELECTORALL//
 
-var titles =document.querySelectorAll('.list-group-item');
+// var titles =document.querySelectorAll('.list-group-item');
 
-console.log(titles);
-titles[1].style.color='green';
+// console.log(titles);
+// titles[1].style.color='green';
 
-var odd =document.querySelectorAll('li:nth-child(odd)');
+// var odd =document.querySelectorAll('li:nth-child(odd)');
 
-for(var i=0; i<odd.length; i++)
-{
-    odd[i].style.backgroundColor = 'green';
-}
+// for(var i=0; i<odd.length; i++)
+// {
+//     odd[i].style.backgroundColor = 'green';
+// }
+
+// TRAVERSING THE DOM // 
+
+//var itemList = document.querySelector('#items');
+// parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.background = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+
+// parentElement
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.background = '#f4f4f4';
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// childNodes
+//console.log(itemList.childNodes)
+
+// console.log(itemList.children);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// // FirstChild
+
+// console.log(itemList.firstChild);
+
+// //firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+
+// LastChild
+
+// console.log(itemList.lastChild);
+
+// //firstElementChild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = 'Hello 4';
+
+//nextSibling
+//console.log(itemList.lastChild);
+
+// nextElementSibling
+//console.log(itemList.nextElementSibling);
+
+//previousSibling
+//console.log(itemList.previousSibling);
+
+// nextElementSibling
+//console.log(itemList.previousElementSibling);
+//itemList.previousElementSibling.style.color = 'green';
+
+//createElement
+
+//Create a div
+// var newDiv =document.createElement('div')
+
+// // Add class
+// newDiv.className = 'hello';
+
+// //Add id
+// newDiv.id = 'hello1'
+
+// //Add attr
+// newDiv.setAttribute('title','Hello Div');
+
+// //Create text node
+// var newDivText= document.createTextNode("Hello World");
+
+// //Add text to div
+// newDiv.appendChild(newDivText);
+// //till here this exist in java script but not in html
+// // where do you want to insert
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
+
+// console.log(newDiv);
+// newDiv.style.fontSize ='30px';
+// //now we insert it in the path that we have created
+
+// container.insertBefore(newDiv, h1)
+
+// var newDiv =document.createElement('li')
+
+// // Add class
+// newDiv.className = 'hello';
+
+// //Add id
+// newDiv.id = 'hello1'
+
+// //Add attr
+// newDiv.setAttribute('title','Hello Div');
+
+// //Create text node
+// var newDivText= document.createTextNode("Hello World");
+
+// //Add text to div
+// newDiv.appendChild(newDivText);
+// //till here this exist in java script but not in html
+// // where do you want to insert
+// var container = document.querySelector('.list-group');
+// var h1 = document.querySelector('li');
+
+// console.log(newDiv);
+// //newDiv.style.fontSize ='30px';
+// //now we insert it in the path that we have created
+
+// container.insertBefore(newDiv, h1)
+
