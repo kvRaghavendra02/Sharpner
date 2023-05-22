@@ -2,6 +2,8 @@ var form = document.getElementById('my-form');
 form.addEventListener('submit', submit);
 var itemList = document.getElementById('users');
     itemList.addEventListener('click', removeItem);
+    itemList.addEventListener('click', editItem);
+    
 function submit(e){
     e.preventDefault();
     var name = document.getElementById('name').value;
@@ -13,12 +15,16 @@ function submit(e){
     //Create new li element
     var li = document.createElement('li');
     var deleteBtn = document.createElement('button');
+    var editBtn = document.createElement('button');
     deleteBtn.className = 'delete';
+    editBtn.className = 'edit';
     deleteBtn.appendChild(document.createTextNode('Delete'));
+    editBtn.appendChild(document.createTextNode('Edit'));
     //Add class
     li.className ='list-group-item';
     li.appendChild(document.createTextNode(combinedName));
-    li.appendChild(deleteBtn)
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
     itemList.appendChild(li);
 
     //itemList.addEventListener('click', removeItem);
@@ -86,7 +92,7 @@ function submit(e){
                 var li = e.target.parentElement;
                 itemList.removeChild(li);  
 
-                var email = li.textContent.split(' ')[2]; // Extract the email from the list item text
+                var email = li.textContent.split(' ')[1]; // Extract the email from the list item text
                 console.log(email)
                 var formData = JSON.parse(localStorage.getItem('formData')) || [];
 
@@ -101,10 +107,38 @@ function submit(e){
 
                 
             }
-
-
     }
 
+    function editItem(e)
+    {
+        e.preventDefault();
+        //console.log(1);
+        if(e.target.classList.contains('edit'))
+        {    
+                var li = e.target.parentElement;  
+                var name = li.textContent.split(' ')[0]; // Extracts the name form the list item text
+                var email = li.textContent.split(' ')[1]; // Extract the email from the list item text
+                var itemInputBoxName = document.getElementById('name');
+                var itemInputBoxEmail = document.getElementById('email');
+                itemInputBoxName.value = name;
+                itemInputBoxEmail.value = email;
+                //console.log('name',name);
+                //console.log(email);
+                itemList.removeChild(li);
+                var formData = JSON.parse(localStorage.getItem('formData')) || [];
 
+                // Find the item in the array with the matching email
+                var itemIndex = formData.findIndex(item => item.email === email);
+                    //console.log(itemIndex)
+                if (itemIndex !== -1) {
+                    //console.log("yes")
+                    formData.splice(itemIndex,1); // Remove the item from the array
+                    localStorage.setItem('formData', JSON.stringify(formData)); // Update the localStorage
+                }
+
+                
+            }
+
+    }
 //console.log(name);
 //console.log("hello");
