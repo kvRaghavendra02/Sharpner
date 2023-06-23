@@ -14,19 +14,25 @@
                     <div class="col-md-6">
                         <h1>Expence Tracker</h1>
             </div>
-            </header>  
-        <label for="amount">Expence Amount</label>
-        <input type="number" id="expence">
-        <label for="description">Expence Description</label> 
-        <input type="text" id="description">
-        <label for="expence type">Expence Type</label>
-        <select id="choice" name="exp choice">
-            <option value="fuel">Fuel</option>
-            <option value="food">Food</option>
-            <option value="elericity">Elericity</option>
-            <option value="movie">Movie</option>
-        </select>
-        <input id="button" type="submit" value="Submit">
-
+        </header> 
+        <div class="container">
+            <div id="main" class="card card-body"> 
+            <form id="addForm" class="form-inline mb-3">
+                <label for="amount">Expence Amount</label>
+                <input type="number" id="expence">
+                <label for="description">Expence Description</label> 
+                <input type="text" id="description">
+                <label for="expence type">Expence Type</label>
+                <select id="choice" name="exp choice">
+                    <option value="fuel">Fuel</option>
+                    <option value="food">Food</option>
+                    <option value="elericity">Elericity</option>
+                    <option value="movie">Movie</option>
+                </select>
+                <input id="button" type="submit" value="Submit">
+            </form>
+            <ul id="users"></ul>
+            </div>
+        </div>
     </body>
 </html>
