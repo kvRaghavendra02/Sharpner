@@ -102,42 +102,30 @@ function deleteLastPost(posts) {
 }
 
 // Function to execute the scenario without async/await
-function postUserLastActive() {
+async function postUserLastActive() {
   // Simulate user data with initial activity time
   const user = { name: "John Doe", lastActivityTime: new Date().toLocaleTimeString() };
   console.log("User:", user);
 
   // Simulate creating posts
-  createPost("First post")
-    .then((post1) => {
-      return createPost("Second post")
-        .then((post2) => {
-          return createPost("Third post")
-            .then((post3) => {
-              const posts = [post1, post2, post3];
-              console.log("Posts created:", posts);
-              return posts;
-            });
-        });
-    })
-    .then((posts) => {
-      // Simulate updating the user's last activity time
-      return updateLastUserActivityTime(user)
-        .then((lastActivityTime) => {
-          console.log("User's last activity time:", lastActivityTime);
-          return posts;
-        });
-    })
-    .then((posts) => {
-      // Simulate deleting the last post
-      return deleteLastPost(posts)
-        .then(() => {
-          console.log("Posts after deletion:", posts);
-        });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  try {
+    // Simulate creating posts
+    const post1 = await createPost("First post");
+    const post2 = await createPost("Second post");
+    const post3 = await createPost("Third post");
+    const posts = [post1, post2, post3];
+    console.log("Posts created:", posts);
+
+    // Simulate updating the user's last activity time
+    const lastActivityTime = await updateLastUserActivityTime(user);
+    console.log("User's last activity time:", lastActivityTime);
+
+    // Simulate deleting the last post
+    await deleteLastPost(posts);
+    console.log("Posts after deletion:", posts);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 // Call the main function to execute the scenario without async/await
